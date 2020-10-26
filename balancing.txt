@@ -1,0 +1,95 @@
+BALANCING THOUGHTS
+The cryogenic energy storage mechanic is meant as an alternative to the accumulator mechanic that accompanies solar panels, as well as other variable energy generators that other mods might create.
+
+Some design goals:
+- more interesting to build
+- more space efficient
+- leverages standard Factorio fluid mechanics
+- upgradeable by more research
+
+Side benefits:
+- allow for decentralized energy generation as only need storage and heat exchanger where power needed
+- creates zero pollution where energy is generated
+
+
+STORAGE EFFICIENCY
+Lithium battery storage is more than 90% storage efficient [0] and Fatorio rounds this up to 100% efficiency.  Storage efficiency is the percent of energy you will get back from what you put in.  100% storage efficiency means you get 100% of the energy back that you put in, while 50% storage efficiency means you will only get half the energy back that you stored.
+
+In 2020, cryogenic storage peaks around 70% efficient.  We will capture this by applying some energy loss at both the condensing and turbine stages.  When the tech is fully upgraded, an 85% efficiency at both stages creates at 72% efficiency.  This table shows the intended efficiency:
+
+tier 1
+50% efficiency at each stage
+25% total efficiency
+
+tier 2
+70% effiency at each stage
+50% total efficiency
+
+tier 3
+85% effiency at each stage
+72% total efficiency
+
+This creates a costly but simple system to build early on.  The player will start creating solar panels and with 2 buildings and 1 storage tank can go thru the night without losing power.  It will be highly inefficient, but it gives the player a simple way to just create fields of solar panels and not worry about nightly brown-outs.  This can then be upgraded as the base expands and scaling up energy production becomes more cumbersome, setting the player up for a system that can grow in complexity and efficiency.
+
+
+ENERGY THROUGHPUT
+According to [1] their baseline system starts at 20MW and can scale up to 200MW.  In terms of space usage, Ferront's 1.1GW reactor [2] is roughly how big I imagine the 200MW cold storage system would look like.  For comparison, that has 192 steam turbines, 112 heat exchangers, and 36 storage tanks (in addition to 8 nuclear reactors, tons of pipes and heat pipes, plus various assorted components).  Note that this large nuclear plant includes generation and this
+
+The liquid air condenser and turbine will be a 5MW throughput.  At this point, it's left as an exercise to the reader to determine the ratio of how many condensers and turbines per technology tier.
+
+WRONG WRONG WRONG - because this is on throughput when it's really about capacity.  This is probably off by a factor of almost 3 given the power taken from the battery only needs to be fully for 10% of the day and partially for 40% of the day (sunrise and sunset).
+For the early game scenario (tier 1 research), 1 condenser and 1 turbine would provide 2.5MW or a bit over 50 accumulators!
+For the late game scenario (tier 3 research) comparing to Ferront's large scale nuclear plant, to achieve 200MW would take 55 condensers (oil refinery size) and 47 turbines (steam turbine size).
+
+For comparison across Factorio:
+- Steam power 20 boilers, 40 steam engines and 1 pump produces 36MW
+- Solar power 25 solar panels, 21 accumulators produces 1MW
+
+
+
+ENERGY DENSITY
+According to [3], it takes 20 accumulators to maintain 1MW thru the night.  Other sites show 21, but let's keep it to 20 to be simple.
+
+cargo wagons can hold 40 stacks and https://wiki.factorio.com/Fuel fuel value per stack
+fluid wagon and storage tank hold 25,000 fluid units.
+
+wood          200 MJ   8.0 GJ
+coal          200 MJ   8.0 GJ
+solid fuel    600 MJ  24.0 GJ
+rocket fuel  1000 MJ  40.0 GJ
+nuclear fuel 1210 MJ  48.4 GJ
+
+Comparing these numbers to the engine density of these objects in real life at https://en.wikipedia.org/wiki/Energy_density was not useful.  There uranium is around 1,500,000,000 MJ/L, coal is 20-40 MJ/L, wood is 3-20 MJ/L, and jet fuel is 35, and liquid nitrogen was 0.25 MJ/L.  Still this gave us a rough guideline.
+
+From a game tech perspective, we would put liquid air between coal and solid fuel, but from a physics energy storage perspective, this hsould be lower than wood and coal.  For comparison, it should be less effective to power a remote base by transporting a wagon of liquid air than it would be to transport a wagon of coal.
+
+To make numbers friendly, this led to the decision.
+
+liquid air            2.5 GJ
+coal                  8.0 GJ
+
+2.5GJ / 25,000 fluid units = 100KJ per fluid unit.
+
+
+SPACE EFFICIENCY
+Accumulator 2x2
+Liquid air condenser (oil refinery) 5x5
+Liquid air turbine (steam turbine) 3x5
+Storage tank 3x3
+
+The rough estimate for turbines to condensers is 2 to 1.  It takes about 7 turbines to consume 1 fluid tank's worth of liquid air in 1 night.  Therefore an an effective day-night-cycle build might include 1 fluid tank, 4 condensers, and 7 turbines.  At tier 3, this would provide 35MW of sustained power overnight.  This replaces 20 x 35 = 700 accumulators.
+
+Not counting power poles and pipelines, this roughly equates to...
+
+accumulators = 2x2x700 = 2,800 spaces
+1 storage tank x 3x3 + 4 condensers x 5x5 + 7 turbines x 3 x 5 = 214 spaces
+
+This is the biggest benefit of this mechanic.  It requires more iron, copper, and some coal to create, and less oil because of less sulfuric acid for batteries.  This also provides more flexibility for reserve energy storage and alerting when a base is losing the ability to sustain energy storage refilling before impacting base performance.
+
+
+
+
+[0] Wikipedia's grid energy storage https://en.wikipedia.org/wiki/Grid_energy_storage
+[1] Highview power's marketing on their CRYObattery plants https://www.highviewpower.com/
+[2] Ferront's 1.1GW compact nuclear reactor https://factorioprints.com/view/-M8JOCLF0jwSUkeXc2LQ
+[3] Factorio's wiki on accumulators https://wiki.factorio.com/Accumulator

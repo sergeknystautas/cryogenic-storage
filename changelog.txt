@@ -1,0 +1,5 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: October 25, 2020
+  Changes:
+    - Initial version with funnctional implementation, tech to unlock 3 tiers, and basic crafting balancing.
