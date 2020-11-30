@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: November 26, 2020
+  Changes:
+    - Add support for Factorio 1.1
+    - Change turbine pipes from input only to input and output (like how steam turbines work)
+
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: October 25, 2020
   Changes:
