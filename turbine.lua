@@ -46,10 +46,10 @@ data:extend(
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
-        { type = "input", position = {0, 3} },
-        { type = "input", position = {0, -3} },
+        { type = "input-output", position = {0, 3} },
+        { type = "input-output", position = {0, -3} },
       },
-      production_type = "input",
+      production_type = "input-output",
       -- filter = "liquid-air",
       -- minimum_temperature = -195.0
     },
@@ -269,10 +269,10 @@ data:extend(
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
-        { type = "input", position = {0, 3} },
-        { type = "input", position = {0, -3} },
+        { type = "input-output", position = {0, 3} },
+        { type = "input-output", position = {0, -3} },
       },
-      production_type = "input",
+      production_type = "input-output",
       -- filter = "liquid-air",
       -- minimum_temperature = -195.0
     },
@@ -492,10 +492,10 @@ data:extend(
         pipe_covers = pipecoverspictures(),
         pipe_connections =
         {
-          { type = "input", position = {0, 3} },
-          { type = "input", position = {0, -3} },
+          { type = "input-output", position = {0, 3} },
+          { type = "input-output", position = {0, -3} },
         },
-        production_type = "input",
+        production_type = "input-output",
         -- filter = "liquid-air",
         -- minimum_temperature = -195.0
       },
