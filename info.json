@@ -1,9 +1,9 @@
 {
   "name": "cryogenic-storage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "Cryogenic Energy Storage",
   "author": "Serge Knystautas",
-  "factorio_version": "1.0",
+  "factorio_version": "1.1",
   "dependencies": ["base >= 1.0"],
   "description": "This mod adds low temperature liquids as an energy storage mechanic."
 }
